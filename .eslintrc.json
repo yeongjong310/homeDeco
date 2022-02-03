@@ -34,6 +34,7 @@
     ],
     "quotes": ["error", "single", { "allowTemplateLiterals": true }], // 홑따움표, 백틱 사용
     "no-nested-ternary": "off", // 중첩 삼항 연산자 사용 허용
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-floating-promises": ["error", { "ignoreIIFE": true }]
   }
 }
