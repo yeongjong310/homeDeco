@@ -1,14 +1,9 @@
 import React, { ReactElement } from 'react';
+import { PictureProps } from './Picture.typs';
 
-interface PictureProps {
-  srcSets: string[];
-  mainSrc: string;
-  alt?: string;
-}
-
-export default function Picture({ srcSets, mainSrc, alt }: PictureProps): ReactElement {
+export default function Picture({ className, srcSets, mainSrc, alt }: PictureProps): ReactElement {
   return (
-    <picture>
+    <picture className={className}>
       {/* {srcSets.map(src => (
         <source key={src} srcSet={src} />
       ))} */}
