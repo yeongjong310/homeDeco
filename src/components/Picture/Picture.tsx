@@ -1,16 +1,19 @@
-import React, { ReactElement } from 'react';
+import React, { forwardRef, ReactElement } from 'react';
 import { PictureProps } from './Picture.typs';
 
-export default function Picture({ className, srcSets, mainSrc, alt }: PictureProps): ReactElement {
-  return (
+const Picture = forwardRef<HTMLImageElement, PictureProps>(
+  // eslint-disable-next-line react/prop-types
+  ({ className, srcSets, mainSrc, alt }: PictureProps, ref): ReactElement => (
     <picture className={className}>
       {/* {srcSets.map(src => (
         <source key={src} srcSet={src} />
       ))} */}
-      <img src={mainSrc} alt={alt} />
+      <img ref={ref} src={mainSrc} alt={alt} />
     </picture>
-  );
-}
+  ),
+);
+
+export default Picture;
 
 Picture.defaultProps = {
   alt: '',
