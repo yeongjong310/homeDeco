@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import StyledDecoCard from './DecoCard.styled';
+import * as S from './DecoCard.styled';
 import { DecoCardProps } from './DecoCard.type';
 
 export default function DecoCard({
@@ -11,7 +11,7 @@ export default function DecoCard({
   direction,
 }: DecoCardProps): ReactElement {
   return (
-    <StyledDecoCard direction={direction}>
+    <S.StyledDecoCard direction={direction}>
       <img src={thunmNailSrc} alt="" title={`${productName} 이동`} />
       <div className="desc">
         <div className="furniture-name">{productName}</div>
@@ -28,6 +28,6 @@ export default function DecoCard({
           height="20"
         />
       </div>
-    </StyledDecoCard>
+    </S.StyledDecoCard>
   );
 }

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { DecoCardProps } from './DecoCard.type';
 
-const StyledDecoCard = styled.div<Pick<DecoCardProps, 'direction'>>`
+export const StyledDecoCard = styled.div<Pick<DecoCardProps, 'direction'>>`
   position: absolute;
   display: flex;
   align-items: center;
@@ -12,6 +12,8 @@ const StyledDecoCard = styled.div<Pick<DecoCardProps, 'direction'>>`
   box-shadow: 3px 3px 8px 0 rgb(0 0 0 / 20%);
   font-size: 14px;
   color: #4a4a4a;
+  background-color: #fff;
+
   > img {
     width: 70px;
     height: 70px;
@@ -21,6 +23,7 @@ const StyledDecoCard = styled.div<Pick<DecoCardProps, 'direction'>>`
     margin-right: 8px;
     flex-shrink: 0;
   }
+
   .desc {
     flex: 1;
     display: flex;
@@ -31,15 +34,18 @@ const StyledDecoCard = styled.div<Pick<DecoCardProps, 'direction'>>`
     overflow: hidden;
     text-align: left;
   }
+
   .move-icon-wrapper {
     margin-top: auto;
     margin-right: 2px;
     display: flex;
     align-items: flex-end;
   }
+
   .furniture-name {
     line-height: 1.3em;
   }
+
   .furniture-price {
     display: flex;
     align-items: center;
@@ -61,6 +67,7 @@ const StyledDecoCard = styled.div<Pick<DecoCardProps, 'direction'>>`
     font-weight: bold;
     line-height: 1.2em;
   }
+
   &::before {
     position: absolute;
     top: ${({ direction }) => (direction === 'bl' || direction === 'br' ? '-8px' : 'unset')};
@@ -77,5 +84,3 @@ const StyledDecoCard = styled.div<Pick<DecoCardProps, 'direction'>>`
     background-repeat: no-repeat;
   }
 `;
-
-export default StyledDecoCard;
