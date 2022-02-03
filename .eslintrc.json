@@ -21,20 +21,11 @@
   "plugins": ["@typescript-eslint", "html", "prettier"],
   "rules": {
     "@typescript-eslint/no-var-requires": "off", // require 모듈 변수에 담기 허용
-    "import/extensions": [
-      // js, jsx, ts, tsx 확장 파일 허용
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
-    ],
+    "import/extensions": "off", // 확장자명 생략 가능
     "quotes": ["error", "single", { "allowTemplateLiterals": true }], // 홑따움표, 백틱 사용
     "no-nested-ternary": "off", // 중첩 삼항 연산자 사용 허용
     "prettier/prettier": "error",
-    "@typescript-eslint/no-floating-promises": ["error", { "ignoreIIFE": true }]
+    "@typescript-eslint/no-floating-promises": ["error", { "ignoreIIFE": true }],
+    "import/prefer-default-export": "off"
   }
 }
