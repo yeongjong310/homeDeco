@@ -81,13 +81,7 @@ export const StyledDecoCard = styled.div<Pick<DecoCardProps, 'direction' | '$dis
     align-items: center;
     margin-top: 4px;
   }
-  .expected-price-label {
-    color: #898f94;
-    font-size: 11px;
-    line-height: 1.2em;
-    font-weight: bold;
-    margin-right: 4px;
-  }
+
   .price-discount {
     display: flex;
     align-items: center;
@@ -113,4 +107,17 @@ export const StyledDecoCard = styled.div<Pick<DecoCardProps, 'direction' | '$dis
     background-size: cover;
     background-repeat: no-repeat;
   }
+`;
+
+export const ExpectedPriceLabel = styled.div<Pick<DecoCardProps, 'outside'>>`
+  color: #898f94;
+  font-size: 11px;
+  line-height: 1.2em;
+  font-weight: bold;
+  margin-right: 4px;
+  ${({ outside }) =>
+    !outside &&
+    `color: #ff585d;
+     margin-right: 4px;
+     font-size: 1rem`}
 `;

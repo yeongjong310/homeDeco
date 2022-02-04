@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { commaNumber } from 'utils';
 import * as S from './DecoCard.styled';
 import { DecoCardProps } from './DecoCard.type';
 
@@ -18,8 +19,10 @@ export default function DecoCard({
       <div className="desc">
         <div className="furniture-name">{productName}</div>
         <div className="furniture-price">
-          <span className="expected-price-label">{outside ? '예상가' : discountRate && ''}</span>
-          <span className="price-discount">{price}</span>
+          <S.ExpectedPriceLabel outside={outside}>
+            {outside ? '예상가' : `${String(discountRate)}%`}
+          </S.ExpectedPriceLabel>
+          <span className="price-discount">{commaNumber(price)}</span>
         </div>
       </div>
       <div className="move-icon-wrapper">
