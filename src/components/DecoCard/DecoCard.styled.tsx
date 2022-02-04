@@ -13,6 +13,34 @@ export const StyledDecoCard = styled.div<Pick<DecoCardProps, 'direction'>>`
   font-size: 14px;
   color: #4a4a4a;
   background-color: #fff;
+  ${({ direction }) => {
+    switch (direction) {
+      case 'br':
+        return `
+            top: 45px;
+            left: -25px;
+          `;
+      case 'bl':
+        return `
+            top: 45px;
+            left: -165px;
+          `;
+      case 'tl':
+        return `
+            top: unset;
+            bottom: 15px;
+            left: -165px;
+          `;
+      case 'tr':
+        return `
+            top: unset;
+            bottom: 15px;
+            left: -25px;
+          `;
+      default:
+        return ``;
+    }
+  }}
 
   > img {
     width: 70px;

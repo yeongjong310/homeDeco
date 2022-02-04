@@ -1,4 +1,5 @@
 export interface DecoCardProps {
+  className?: string;
   thunmNailSrc: string;
   productName: string;
   price: number;

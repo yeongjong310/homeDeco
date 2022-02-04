@@ -3,6 +3,7 @@ import * as S from './DecoCard.styled';
 import { DecoCardProps } from './DecoCard.type';
 
 export default function DecoCard({
+  className,
   thunmNailSrc,
   productName,
   price,
@@ -11,7 +12,7 @@ export default function DecoCard({
   direction,
 }: DecoCardProps): ReactElement {
   return (
-    <S.StyledDecoCard direction={direction}>
+    <S.StyledDecoCard direction={direction} className={className}>
       <img src={thunmNailSrc} alt="" title={`${productName} 이동`} />
       <div className="desc">
         <div className="furniture-name">{productName}</div>
