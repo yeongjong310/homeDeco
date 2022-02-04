@@ -44,7 +44,7 @@ export default function DecoViewer(): ReactElement {
           <S.RoomPicture
             ref={imageRef}
             srcSets={extensions.map(extension => replaceExtension(data.imageUrl, extension))}
-            mainSrc="//cdn.ggumim.co.kr/cache/star/1000/2022011017094316oRcWeb8R.jpeg"
+            mainSrc={data.imageUrl}
             onClick={() => {
               setSelectedProduct(null);
             }}
@@ -56,7 +56,7 @@ export default function DecoViewer(): ReactElement {
               productId,
               imageUrl,
               productName,
-              priceOriginal,
+              priceDiscount,
               discountRate,
               outside,
             }) => {
@@ -64,7 +64,7 @@ export default function DecoViewer(): ReactElement {
               const positionY = pointY * RATIOY;
 
               const cardDirection = ((): DecoCardProps['direction'] => {
-                const directionY = imageRect.height / 2 < positionX ? 'b' : 't';
+                const directionY = imageRect.height / 2 > positionX ? 'b' : 't';
                 const directionX = imageRect.width / 2 > positionY ? 'r' : 'l';
 
                 return (directionY + directionX) as DecoCardProps['direction'];
@@ -75,7 +75,7 @@ export default function DecoViewer(): ReactElement {
                   <DecoCard
                     thunmNailSrc={imageUrl}
                     productName={productName}
-                    price={priceOriginal}
+                    price={priceDiscount}
                     discountRate={discountRate}
                     outside={outside}
                     direction={cardDirection}
