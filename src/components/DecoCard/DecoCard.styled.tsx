@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { DecoCardProps } from './DecoCard.type';
 
-export const StyledDecoCard = styled.div<Pick<DecoCardProps, 'direction'>>`
+export const StyledDecoCard = styled.div<Pick<DecoCardProps, 'direction' | '$display'>>`
   position: absolute;
-  display: flex;
+  display: ${({ $display }) => ($display ? 'flex' : 'none')};
   align-items: center;
   width: 220px;
   height: 86px;
@@ -13,6 +13,8 @@ export const StyledDecoCard = styled.div<Pick<DecoCardProps, 'direction'>>`
   font-size: 14px;
   color: #4a4a4a;
   background-color: #fff;
+  cursor: pointer;
+  z-index: 10;
   ${({ direction }) => {
     switch (direction) {
       case 'br':

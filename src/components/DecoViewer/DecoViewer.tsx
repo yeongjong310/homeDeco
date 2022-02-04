@@ -17,6 +17,7 @@ export default function DecoViewer(): ReactElement {
     width: 0,
     height: 0,
   });
+  const [selectedProduct, setSelectedProduct] = useState<number | null>(null);
 
   const imageRef = useRef<HTMLImageElement | null>(null);
 
@@ -44,32 +45,55 @@ export default function DecoViewer(): ReactElement {
             ref={imageRef}
             srcSets={extensions.map(extension => replaceExtension(data.imageUrl, extension))}
             mainSrc="//cdn.ggumim.co.kr/cache/star/1000/2022011017094316oRcWeb8R.jpeg"
+            onClick={() => {
+              setSelectedProduct(null);
+            }}
           />
-          {data.productList.map(product => {
-            const positionX = product.pointX * RATIOX;
-            const positionY = product.pointY * RATIOY;
+          {data.productList.map(
+            ({
+              pointX,
+              pointY,
+              productId,
+              imageUrl,
+              productName,
+              priceOriginal,
+              discountRate,
+              outside,
+            }) => {
+              const positionX = pointX * RATIOX;
+              const positionY = pointY * RATIOY;
 
-            const cardDirection = ((): DecoCardProps['direction'] => {
-              const directionY = imageRect.height / 2 < positionX ? 'b' : 't';
-              const directionX = imageRect.width / 2 > positionY ? 'r' : 'l';
+              const cardDirection = ((): DecoCardProps['direction'] => {
+                const directionY = imageRect.height / 2 < positionX ? 'b' : 't';
+                const directionX = imageRect.width / 2 > positionY ? 'r' : 'l';
 
-              return (directionY + directionX) as DecoCardProps['direction'];
-            })();
+                return (directionY + directionX) as DecoCardProps['direction'];
+              })();
 
-            return (
-              <S.DecoWrapper key={product.productId} pointX={positionX} pointY={positionY}>
-                <DecoCard
-                  thunmNailSrc={product.imageUrl}
-                  productName={product.productName}
-                  price={product.priceOriginal}
-                  discountRate={product.discountRate}
-                  outside={product.outside}
-                  direction={cardDirection}
-                />
-                <S.DecoOpenner src={(process.env.REACT_APP_BASE_URL as string) + icon.finder} />
-              </S.DecoWrapper>
-            );
-          })}
+              return (
+                <S.DecoWrapper key={productId} pointX={positionX} pointY={positionY}>
+                  <DecoCard
+                    thunmNailSrc={imageUrl}
+                    productName={productName}
+                    price={priceOriginal}
+                    discountRate={discountRate}
+                    outside={outside}
+                    direction={cardDirection}
+                    $display={selectedProduct === productId}
+                  />
+                  <S.DecoOpenner
+                    src={
+                      (process.env.REACT_APP_BASE_URL as string) +
+                      (selectedProduct === productId ? icon.canceler : icon.finder)
+                    }
+                    onClick={() =>
+                      setSelectedProduct(selectedProduct === productId ? null : productId)
+                    }
+                  />
+                </S.DecoWrapper>
+              );
+            },
+          )}
         </>
       )}
     </div>

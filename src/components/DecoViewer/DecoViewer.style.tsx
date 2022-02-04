@@ -12,6 +12,7 @@ export const DecoOpenner = styled.img.attrs<CardOpenerProps>(({ src }) => ({
   src,
 }))<CardOpenerProps>`
   position: absolute;
+  cursor: pointer;
   width: 32px;
   height: 32px;
 `;
