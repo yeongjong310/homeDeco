@@ -26,6 +26,14 @@
     "no-nested-ternary": "off", // 중첩 삼항 연산자 사용 허용
     "prettier/prettier": "error",
     "@typescript-eslint/no-floating-promises": ["error", { "ignoreIIFE": true }],
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "react/function-component-definition": [
+      // component 함수 유형 지정
+      2,
+      {
+        "namedComponents": ["function-declaration", "function-expression"]
+      }
+    ],
+    "react/jsx-props-no-spreading": [2, { "html": "ignore", "custom": "ignore" }] // props를 spread로 풀어 사용할 수 있음.
   }
 }
