@@ -34,6 +34,6 @@
         "namedComponents": ["function-declaration", "function-expression"]
       }
     ],
-    "react/jsx-props-no-spreading": [2, { "html": "ignore", "custom": "ignore" }] // props를 spread로 풀어 사용할 수 있음.
+    "react/jsx-props-no-spreading": "off" // props를 spread로 풀어 사용할 수 있음.
   }
 }
