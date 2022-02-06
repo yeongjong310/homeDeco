@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ImgSlider from './ImgSlider';
+import Slider from './Slider';
 
 export default {
-  title: 'Component/ImgSlider',
-  component: ImgSlider,
+  title: 'Component/Slider',
+  component: Slider,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
@@ -40,12 +40,14 @@ export default {
       },
     ],
   },
-} as ComponentMeta<typeof ImgSlider>;
+} as ComponentMeta<typeof Slider>;
 
-const Template: ComponentStory<typeof ImgSlider> = function (args) {
-  return <ImgSlider {...args} />;
+const Template: ComponentStory<typeof Slider> = function (args) {
+  return <Slider {...args} />;
 };
 
 export const Default = Template.bind({});
 
-// Default.args = {};
+Default.args = {
+  gap: 12,
+};
