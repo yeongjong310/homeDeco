@@ -1,4 +1,4 @@
-export interface DecoWrapperProps {
+export interface DecoCardWrapperProps {
   pointX: number;
   pointY: number;
 }

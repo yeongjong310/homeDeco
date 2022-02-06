@@ -1,10 +1,11 @@
 import React, { ReactElement, useEffect, useRef, useState } from 'react';
+import { DecoCard, Slider } from 'components';
+import ImgItem from 'components/Slider/ImgItem/ImgItem';
 import { extensions } from 'consts';
 import { replaceExtension } from 'utils';
 import { Room } from 'api/models/Room.type';
 import { get } from 'api/room';
 import { icon } from 'assets';
-import { DecoCard } from 'components';
 import { DecoCardProps } from '../DecoCard/DecoCard.type';
 import * as S from './DecoViewer.style';
 
@@ -38,7 +39,7 @@ export default function DecoViewer(): ReactElement {
   }, []);
 
   return (
-    <div>
+    <S.DecoViewer>
       {data && (
         <>
           <S.RoomPicture
@@ -71,7 +72,7 @@ export default function DecoViewer(): ReactElement {
               })();
 
               return (
-                <S.DecoWrapper key={productId} pointX={positionX} pointY={positionY}>
+                <S.DecoCardWrapper key={productId} pointX={positionX} pointY={positionY}>
                   <DecoCard
                     thunmNailSrc={imageUrl}
                     productName={productName}
@@ -90,12 +91,17 @@ export default function DecoViewer(): ReactElement {
                       setSelectedProduct(selectedProduct === productId ? null : productId)
                     }
                   />
-                </S.DecoWrapper>
+                </S.DecoCardWrapper>
               );
             },
           )}
+          <Slider gap={12}>
+            {data.productList.map(({ productId, imageUrl, discountRate }) => (
+              <ImgItem key={productId} src={imageUrl} discountRate={discountRate} />
+            ))}
+          </Slider>
         </>
       )}
-    </div>
+    </S.DecoViewer>
   );
 }

@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 import { Picture } from 'components';
-import { CardOpenerProps, DecoWrapperProps } from './DecoViewer.type';
+import { CardOpenerProps, DecoCardWrapperProps } from './DecoViewer.type';
 
-export const DecoWrapper = styled.div<DecoWrapperProps>`
+export const DecoViewer = styled.div`
+  position: relative;
+`;
+
+export const DecoCardWrapper = styled.div<DecoCardWrapperProps>`
   position: absolute;
   top: ${({ pointX }) => pointX}px;
   left: ${({ pointY }) => pointY}px;
