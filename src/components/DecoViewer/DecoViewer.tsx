@@ -97,7 +97,13 @@ export default function DecoViewer(): ReactElement {
           )}
           <Slider gap={12}>
             {data.productList.map(({ productId, imageUrl, discountRate }) => (
-              <ImgItem key={productId} src={imageUrl} discountRate={discountRate} />
+              <ImgItem
+                key={productId}
+                src={imageUrl}
+                discountRate={discountRate}
+                className={selectedProduct === productId ? 'active' : ''}
+                onClick={() => setSelectedProduct(selectedProduct === productId ? null : productId)}
+              />
             ))}
           </Slider>
         </>
