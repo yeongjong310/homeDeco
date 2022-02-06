@@ -40,7 +40,7 @@ export default function Slider({ className, gap, onClick, children }: SliderProp
     $ul.style.transition = `transform 0ms`;
 
     document.onmousemove = event => {
-      offsetX = (event.clientX - initialX) / 2;
+      offsetX = event.clientX - initialX;
       $ul.style.transform = `translateX(${offsetX}px)`;
     };
 
