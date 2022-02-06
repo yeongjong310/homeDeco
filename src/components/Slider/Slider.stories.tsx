@@ -103,7 +103,7 @@ export const TagSlider: ComponentStory<typeof Slider> = function ({ ...args }) {
         'testTag5',
       ].map(tag => (
         <li>
-          <button style={{ cursor: 'pointer' }} type="button">
+          <button style={{ cursor: 'pointer', userSelect: 'none' }} type="button">
             {tag}
           </button>
         </li>
