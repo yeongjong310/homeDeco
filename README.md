@@ -26,4 +26,4 @@ $ npm install
 
 ## **🛠️ 기술 스택**
 
-HTML5, CSS, REACT(CreateReactApp), Styled Component, Typescript, Jest
+HTML5, CSS, REACT(CreateReactApp), Styled Component, Typescript, Jest, storybook

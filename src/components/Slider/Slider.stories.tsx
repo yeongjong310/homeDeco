@@ -10,10 +10,25 @@ export default {
     docs: {
       description: {
         component: `**Slider**는 li 엘리먼트를 요소로 가진 배열을 children으로 입력받아, 슬라이드를 만들어주는 컴포넌트입니다. 
-        기본적으로 swape 기능이 탑제되어 있으며, 어떠한 타입의 엘리먼트도 입력받을 수 있어 필요에 따라 children만 바꾸어주면 컨텐츠를 유동적으로 바꿀 수 있는 컴포넌트 입니다.
+        기본적으로 swape 기능이 탑제되어 있으며, 필요에 따라 li의 자식 요소를 바꾸어주면 다양한 컨텐츠를 아이템으로 가질 수 있습니다.
         `,
       },
     },
+  },
+  argTypes: {
+    className: {
+      table: {
+        disable: true,
+      },
+    },
+    onClick: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  args: {
+    gap: 12,
   },
 } as ComponentMeta<typeof Slider>;
 
@@ -62,9 +77,9 @@ const productList = [
   },
 ];
 
-export const ImgSlider: ComponentStory<typeof Slider> = function () {
+export const ImgSlider: ComponentStory<typeof Slider> = function ({ ...args }) {
   return (
-    <Slider gap={12}>
+    <Slider {...args}>
       {productList.map(({ productId, imageUrl, discountRate }) => (
         <ImgItem key={productId} src={imageUrl} discountRate={discountRate} />
       ))}
@@ -72,9 +87,9 @@ export const ImgSlider: ComponentStory<typeof Slider> = function () {
   );
 };
 
-export const TagSlider: ComponentStory<typeof Slider> = function () {
+export const TagSlider: ComponentStory<typeof Slider> = function ({ ...args }) {
   return (
-    <Slider gap={12}>
+    <Slider {...args}>
       {[
         'testTag1',
         'testTag2',
