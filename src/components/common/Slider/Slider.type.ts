@@ -8,5 +8,6 @@ export interface SliderProps {
   children: ReactNode;
   onClick?: () => void;
   onMouseMove?: () => void;
+  /** swape 속도를 조절 할 수 있습니다. 1이 기준이며 높아질수록 속도가 낮이집니다.*/
   swapeSpeed?: number;
 }

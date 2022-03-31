@@ -25,6 +25,11 @@ export default {
         disable: true,
       },
     },
+    onMouseMove: {
+      table: {
+        disable: true,
+      },
+    },
   },
   args: {
     gap: 12,
