@@ -1,8 +1,9 @@
 import React, { ReactElement, useEffect, useRef } from 'react';
 import * as S from './Slider.styled';
 import { SliderProps } from './Slider.type';
+import ImgItem from './ImgItem/ImgItem';
 
-export default function Slider({ className, gap, onClick, children }: SliderProps): ReactElement {
+function Slider({ className, gap, onClick, children }: SliderProps): ReactElement {
   const listRef = useRef<HTMLUListElement>(null);
   let initialX: number;
   let offsetX = 0;
@@ -69,3 +70,7 @@ Slider.defaultProps = {
   className: '',
   onClick: () => null,
 };
+
+Slider.ImgItem = ImgItem;
+
+export default Slider;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Slider from './Slider';
-import ImgItem from './ImgItem/ImgItem';
 
 export default {
   title: 'Component/Slider',
@@ -81,7 +80,7 @@ export const ImgSlider: ComponentStory<typeof Slider> = function ({ ...args }) {
   return (
     <Slider {...args}>
       {productList.map(({ productId, imageUrl, discountRate }) => (
-        <ImgItem key={productId} src={imageUrl} discountRate={discountRate} />
+        <Slider.ImgItem key={productId} src={imageUrl} discountRate={discountRate} />
       ))}
     </Slider>
   );
@@ -101,8 +100,9 @@ export const TagSlider: ComponentStory<typeof Slider> = function ({ ...args }) {
         'testTag3',
         'testTag4',
         'testTag5',
-      ].map(tag => (
-        <li>
+      ].map((tag, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <li key={index}>
           <button style={{ cursor: 'pointer', userSelect: 'none' }} type="button">
             {tag}
           </button>

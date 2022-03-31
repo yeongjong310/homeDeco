@@ -7,4 +7,5 @@ export interface SliderProps {
   gap: number;
   children: ReactNode;
   onClick?: () => void;
+  onMouseMove?: () => void;
 }
