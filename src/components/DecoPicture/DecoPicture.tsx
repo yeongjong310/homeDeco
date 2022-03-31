@@ -22,6 +22,14 @@ export default function DecoPicture({
 
   const imageRef = useRef<HTMLImageElement | null>(null);
 
+  useEffect(() => {
+    if (imageRef.current) {
+      const { width, height } = imageRef.current.getBoundingClientRect();
+      setImageRect({ width, height });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [imageRef.current]);
+
   return (
     <>
       <S.RoomPicture
