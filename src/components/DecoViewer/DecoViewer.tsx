@@ -1,6 +1,5 @@
 import React, { ReactElement, useEffect, useRef, useState } from 'react';
-import { DecoCard, Slider } from 'components';
-import ImgItem from 'components/Slider/ImgItem/ImgItem';
+import { DecoCard, DecoSlider } from 'components';
 import { extensions } from 'consts';
 import { replaceExtension } from 'utils';
 import { Room } from 'api/models/Room.type';
@@ -95,17 +94,11 @@ export default function DecoViewer(): ReactElement {
               );
             },
           )}
-          <Slider gap={12}>
-            {data.productList.map(({ productId, imageUrl, discountRate }) => (
-              <ImgItem
-                key={productId}
-                src={imageUrl}
-                discountRate={discountRate}
-                className={selectedProduct === productId ? 'active' : ''}
-                onClick={() => setSelectedProduct(selectedProduct === productId ? null : productId)}
-              />
-            ))}
-          </Slider>
+          <DecoSlider
+            productList={data.productList}
+            selectedProduct={selectedProduct}
+            setSelectedProduct={setSelectedProduct}
+          />
         </>
       )}
     </S.DecoViewer>
