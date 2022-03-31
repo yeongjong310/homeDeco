@@ -9,7 +9,7 @@ export default function DecoSlider({
   setSelectedProduct,
 }: DecoSliderProps): ReactElement {
   return (
-    <Slider gap={12}>
+    <Slider gap={12} swapeSpeed={2}>
       {productList.map(({ productId, imageUrl, discountRate }) => (
         <Slider.ImgItem
           key={productId}

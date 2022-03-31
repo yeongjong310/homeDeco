@@ -8,4 +8,5 @@ export interface SliderProps {
   children: ReactNode;
   onClick?: () => void;
   onMouseMove?: () => void;
+  swapeSpeed?: number;
 }

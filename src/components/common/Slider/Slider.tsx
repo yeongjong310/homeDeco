@@ -3,9 +3,19 @@ import * as S from './Slider.styled';
 import { SliderProps } from './Slider.type';
 import ImgItem from './ImgItem/ImgItem';
 
-function Slider({ className, gap, onClick, children }: SliderProps): ReactElement {
+const defaultProps = {
+  className: '',
+  onClick: () => null,
+  swapeSpeed: 1,
+};
+function Slider({
+  className,
+  gap,
+  onClick,
+  children,
+  swapeSpeed,
+}: SliderProps & typeof defaultProps): ReactElement {
   const listRef = useRef<HTMLUListElement>(null);
-  let initialX: number;
   let offsetX = 0;
 
   const removeEventHandlers = () => {
@@ -37,11 +47,12 @@ function Slider({ className, gap, onClick, children }: SliderProps): ReactElemen
     const $ul = listRef.current;
     if (!$ul) return;
 
-    initialX = e.clientX - offsetX;
+    const initialOffset = offsetX;
+
     $ul.style.transition = `transform 0ms`;
 
     document.onmousemove = event => {
-      offsetX = event.clientX - initialX;
+      offsetX = (event.clientX - e.clientX) / swapeSpeed + initialOffset;
       $ul.style.transform = `translateX(${offsetX}px)`;
     };
 
@@ -66,10 +77,7 @@ function Slider({ className, gap, onClick, children }: SliderProps): ReactElemen
   );
 }
 
-Slider.defaultProps = {
-  className: '',
-  onClick: () => null,
-};
+Slider.defaultProps = defaultProps;
 
 Slider.ImgItem = ImgItem;
 

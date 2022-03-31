@@ -28,6 +28,7 @@ export default {
   },
   args: {
     gap: 12,
+    swapeSpeed: 4,
   },
 } as ComponentMeta<typeof Slider>;
 
