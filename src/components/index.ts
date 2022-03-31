@@ -1,4 +1,5 @@
 export { default as Picture } from './Picture/Picture';
 export { default as DecoViewer } from './DecoViewer/DecoViewer';
 export { default as DecoCard } from './DecoCard/DecoCard';
-export { default as Slider } from './Slider/Slider';
+export { default as DecoSlider } from './DecoSlider/DecoSlider';
+export { default as Slider } from './common/Slider/Slider';
